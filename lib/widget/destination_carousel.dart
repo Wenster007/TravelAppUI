@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:travelapp/models/destination_model.dart';
+import 'package:travelapp/screens/destination_screen.dart';
 import 'package:travelapp/widget/destination_carousel_Item.dart';
 
 class DestinationCarousel extends StatelessWidget {
@@ -41,7 +42,18 @@ class DestinationCarousel extends StatelessWidget {
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: destinations.length,
-            itemBuilder: (ctx, index) => DestinationCarouselItem(destination: destinations[index],),
+            itemBuilder: (ctx, index) => GestureDetector(
+              onTap: () => Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => DestinationScreen(
+                    destination: destinations[index],
+                  ),
+                ),
+              ),
+              child: DestinationCarouselItem(
+                destination: destinations[index],
+              ),
+            ),
           ),
         ),
       ],
