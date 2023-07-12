@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:travelapp/models/hotel_model.dart';
+import 'package:travelapp/screens/hotel_screen.dart';
 import 'package:travelapp/widget/hotel_carousel_item.dart';
 
 class HotelCarousel extends StatelessWidget {
   const HotelCarousel({Key? key}) : super(key: key);
-
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,13 @@ class HotelCarousel extends StatelessWidget {
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: hotels.length,
-            itemBuilder: (ctx, index) => HotelCarouselItem(hotel: hotels[index],),
+            itemBuilder: (ctx, index) => GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => HotelScreen(hotel: hotels[index]),));
+                },
+                child: HotelCarouselItem(
+                  hotel: hotels[index],
+                )),
           ),
         ),
       ],

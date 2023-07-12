@@ -150,7 +150,7 @@ class _DestinationScreenState extends State<DestinationScreen> {
                         fit: BoxFit.cover,
                       ),
                     ),
-                  )
+                  ),
                 ],
               );
             },

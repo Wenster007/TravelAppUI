@@ -58,13 +58,16 @@ class HotelCarouselItem extends StatelessWidget {
                 ),
               ],
             ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(20),
-              child: Image(
-                height: 180,
-                width: 260,
-                image: AssetImage(hotel.imageUrl),
-                fit: BoxFit.cover,
+            child: Hero(
+              tag: hotel.imageUrl,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Image(
+                  height: 180,
+                  width: 260,
+                  image: AssetImage(hotel.imageUrl),
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ),
